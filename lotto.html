@@ -6,13 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        #result{
+        #result, .bonus {
+            /* background-color: black; */
+        }
 
+        #result div, .bonus div{
+            /* background-color: gray; */
+            display: inline-block;
+            border : 1px solid black;
+            width: 40px;
+            height: 40px;
+            border-radius : 50%;
+            text-align : center;
+            vertical-align: middle;
         }
     </style>
 </head>
 <body>
+    <div>당첨공</div>
     <div id="result"></div>
+
+    <div>보너스공</div>
     <div class="bonus"></div>
     
     <script src="lotto.js"></script>
