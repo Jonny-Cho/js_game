@@ -32,25 +32,29 @@ var resultDiv = document.querySelector('#result');
 //     }, 1000);
 // }
 
+function colorize(num, element){
+    var bg;
+    if(num<=10){
+        bg = 'red';
+    } else if (num<=20) {
+        bg = 'orange';
+    } else if (num<=30) {
+        bg = 'yellow';
+    } else if (num<=40) {
+        bg = 'skyblue';
+    } else {
+        bg = 'green';
+    }
+    element.style.background = bg;
+}
+
 // 비동기함수 클로저문제 해결
 for(var i=0; i<luckyNum.length; i++){
     (function(j){
         setTimeout(function callback(){
             var luckyBall = document.createElement('div');
             luckyBall.textContent = luckyNum[j];
-            var bg;
-            if(luckyNum[j]<=10){
-                bg = 'red';
-            } else if (luckyNum[j]<=20) {
-                bg = 'orange';
-            } else if (luckyNum[j]<=30) {
-                bg = 'yellow';
-            } else if (luckyNum[j]<=40) {
-                bg = 'blue';
-            } else {
-                bg = 'green';
-            }
-            luckyBall.style.background = bg;
+            colorize(luckyNum[j], luckyBall);
             resultDiv.appendChild(luckyBall);
         }, j*1000);
     })(i);
@@ -58,22 +62,10 @@ for(var i=0; i<luckyNum.length; i++){
 
 // 보너스 숫자를 보너스공(HTML)에 담기
 
+var bonusDiv = document.querySelector('.bonus');
 setTimeout(function(){
-    var bonusDiv = document.querySelector('.bonus')[0];
     var bonusBall = document.createElement('div');
     bonusBall.textContent = bonusNum;
-    var bg;
-    if(bonusNum<=10){
-        bg = 'red';
-    } else if (bonusNum<=20) {
-        bg = 'orange';
-    } else if (bonusNum<=30) {
-        bg = 'yellow';
-    } else if (bonusNum<=40) {
-        bg = 'blue';
-    } else {
-        bg = 'green';
-    }
-    bonusBall.style.background = bg;
+    colorize(bonusNum, bonusBall);
     bonusDiv.appendChild(bonusBall);
 }, 6000);
